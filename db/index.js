@@ -17,8 +17,8 @@ async function createUser({
 }) {
   try {
     const { rows: [ user ] } = await client.query(`
-      INSERT INTO users(username, password, name) 
-      VALUES($1, $2, $3) 
+      INSERT INTO users(username, password, name, location) 
+      VALUES($1, $2, $3, $4) 
       ON CONFLICT (username) DO NOTHING 
       RETURNING *;
     `, [username, password, name, location]);
@@ -280,6 +280,18 @@ async function getPostsByTagName(tagName) {
 /**
  * TAG Methods
  */
+
+// async function getPostTagbyTag({id}) {
+//   try {
+//     const {post} = await client.query(`
+//       SELECT * FROM post_tags
+//       WHERE "postId" = ${id}
+//     `);
+//     return post;
+//   } catch (error) {
+//     throw error;
+//   }
+// }
 
 async function createTags(tagList) {
   if (tagList.length === 0) {

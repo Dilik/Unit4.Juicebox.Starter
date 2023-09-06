@@ -20,7 +20,7 @@ postsRouter.get('/', async (req, res, next) => {
         return true;
       }
     
-      // the post is not active, but it belogs to the current user
+      // the post is not active, but it belongs to the current user
       if (req.user && post.author.id === req.user.id) {
         return true;
       }
@@ -38,7 +38,7 @@ postsRouter.get('/', async (req, res, next) => {
 });
 
 postsRouter.post('/', requireUser, async (req, res, next) => {
-  const { title, content = "" } = req.body;
+  const { title, content = "", tags = [] } = req.body;
 
   const postData = {};
 
@@ -46,6 +46,8 @@ postsRouter.post('/', requireUser, async (req, res, next) => {
     postData.authorId = req.user.id;
     postData.title = title;
     postData.content = content;
+    postData.tags = tags;
+
 
     const post = await createPost(postData);
 
