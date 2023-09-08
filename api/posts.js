@@ -38,7 +38,7 @@ postsRouter.get('/', async (req, res, next) => {
   }
 });
 
-postsRouter.post('/', requireUser, async (req, res, next) => {
+postsRouter.post('/', requireUser,  async (req, res, next) => {
   const { title, content = "", tags = [] } = req.body;
 
   const postData = {};
@@ -66,13 +66,13 @@ postsRouter.post('/', requireUser, async (req, res, next) => {
 });
 
 postsRouter.patch('/:postId', requireUser, async (req, res, next) => {
-  const { postId } = req.params;
+  const { postId } = req.params.postId;
   const { title, content, tags } = req.body;
 
   const updateFields = {};
 
   if (tags && tags.length > 0) {
-    updateFields.tags = tags.trim().split(/\s+/);
+    updateFields.tags = tags;
   }
 
   if (title) {
@@ -100,7 +100,7 @@ postsRouter.patch('/:postId', requireUser, async (req, res, next) => {
   }
 });
 
-postsRouter.delete('/:postId', requireUser, async (req, res, next) => {
+postsRouter.delete('/:postId', requireUser,  async (req, res, next) => {
   try {
     const deletePost = await deletePostById(req.params.postId);
     res.send(deletePost);

@@ -180,12 +180,16 @@ async function updatePost(postId, fields = {}) {
 }
 
 // DELETE   
-async function deletePostById({postId}) {
+async function deletePostById(postId) {
   try {
-    const { rows: [post]} = await client.query(`
-      DELETE FROM posts
-      WHERE id=$1
-      RETURNING *;
+    await client.query(`
+        DELETE FROM post_tags
+        WHERE "postId" = $1;
+    `, [postId]);
+    const {rows: [post]} = await client.query(`
+        DELETE FROM posts 
+        WHERE id = $1
+        RETURNING *
     `, [postId]);
     return post;
   } catch (error) {
