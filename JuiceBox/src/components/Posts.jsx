@@ -26,13 +26,11 @@ console.log(postsToDisplay)
 return(
     <>
     <h1>Posts</h1>
-    
-    {postsToDisplay.map((post)=>{
-        return 
+    {postsToDisplay.map((post)=>(
             <div key={post.id}>
             <h4>{post.content}</h4>
             </div>
-    })}
+    ))}
     
     </>
 )
