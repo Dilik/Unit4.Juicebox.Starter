@@ -38,7 +38,7 @@ return(
       </div>
 
     <div className="postcontainer">
-    <h1 className="posttitle">Posts</h1>
+    <h2 className="posttitle">Posts</h2>
     {posts && posts.map((post)=>(
             <div key={post.id} className="eachpost">
             <h2>{post.title}</h2>

@@ -11,7 +11,7 @@ export default function Profile(){
         <Link to={"/Logout"}>Logout</Link>
         </div>
 
-        <h1>Profile</h1>
+        <h2>Profile</h2>
         </>
     )
 }
