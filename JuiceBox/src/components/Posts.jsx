@@ -39,18 +39,19 @@ return(
 
     <div className="postcontainer">
     <h1 className="posttitle">Posts</h1>
-    {postsToDisplay.map((post)=>(
+    {posts && posts.map((post)=>(
             <div key={post.id} className="eachpost">
             <h2>{post.title}</h2>
             <p>{post.content}</p>
+            {post.tags && post.tags.map((tag, index)=>(
+                <div key={index}>
+                    <p style={{color:"#535bf2"}}>{tag.name}</p>
+                </div>
+            ))}
+
             </div>
     ))}
     
-    {tagsToDisplay.map((tag)=>(
-        <div key={tag.id}>
-            <h3>{tag.name}</h3>
-        </div>
-    ))}
     </div>
     </>
 )
