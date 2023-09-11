@@ -67,3 +67,30 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.3em;
+}
+
+.posttitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+}
+
+.postcontainer{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.eachpost{
+  display: flex;
+  flex-direction:column;
+  align-items:flex-start;
+  margin: 20px;
+}
