@@ -54,7 +54,7 @@ postsRouter.post("/", requireUser, async (req, res, next) => {
   const postData = {};
 
   try {
-    postData.authorId = req.user;
+    postData.authorId = req.user.id; // Fix this line
     postData.title = title;
     postData.content = content;
     postData.tags = tags;
@@ -73,6 +73,7 @@ postsRouter.post("/", requireUser, async (req, res, next) => {
     next({ name, message });
   }
 });
+
 
 postsRouter.patch("/:postId", requireUser, async (req, res, next) => {
   const { postId } = req.params.postId;
