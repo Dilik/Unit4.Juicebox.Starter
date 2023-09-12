@@ -8,7 +8,7 @@ export default function NavBar() {
     window.location.reload()
   }
   return (
-    <nav className="navbar">
+    <nav id="navbar">
       <Link to="/"><h1 className="logo">JuiceBox</h1></Link>
       <div className="nav-links">
         <Link to="/posts">Posts</Link>
@@ -21,6 +21,7 @@ export default function NavBar() {
             Log Out
           </Link>
         ) : null}
+        <Link to="/Logout">Logout</Link>
       </div>
     </nav>
   )

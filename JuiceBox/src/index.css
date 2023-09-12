@@ -71,7 +71,7 @@ button:focus-visible {
   }
 }
 
-.navbar{
+.nav-links{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
