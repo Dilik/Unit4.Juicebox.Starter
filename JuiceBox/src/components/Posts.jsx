@@ -1,6 +1,5 @@
 import { fetchAllPosts } from "../API";
 import { useEffect,useState } from "react";
-import { Link } from "react-router-dom";
 
 
 export function Posts(){

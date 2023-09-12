@@ -3,7 +3,7 @@ export async function fetchAllPosts() {
     const response = await fetch('http://localhost:3000/api/posts');
     const result = await response.json();
     console.log("Fetched all posts", result);
-    return result;
+    return result.posts;
   } catch (error) {
     console.log(error);
   }
