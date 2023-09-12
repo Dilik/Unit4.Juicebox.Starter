@@ -11,7 +11,6 @@ export default function NavBar() {
     <nav id="navbar">
       <Link to="/"><h1 className="logo">JuiceBox</h1></Link>
       <div className="nav-links">
-        <Link to="/posts">Posts</Link>
         {localStorage.getItem('user') ? (
           <Link to="/profile">Profile</Link>
         ) : null}

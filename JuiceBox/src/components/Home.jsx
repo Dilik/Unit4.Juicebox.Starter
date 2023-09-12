@@ -1,59 +1,62 @@
-import { useState, useEffect } from "react";
 import { fetchAllPosts } from "../API";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { useEffect,useState } from "react";
 
-export default function AllPosts() {
-  const [posts, setPosts] = useState([]);
-  const [error, setError] = useState(null);
-  const [searchParam, setSearchParam] = useState("");
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    async function getAllPosts() {
-      const APIData = await fetchAllPosts();
-      if (APIData !== null) {
-        setPosts(APIData);
-        console.log("the posts", APIData);
-      } else {
-        setError(window.alert("error"));
-      }
+export default function Home(){
+    const[posts,setPosts]=useState([])
+    const[tags, setTags]=useState([])
+    const[error, setError]=useState([])
+    const[searchParams,setSearchParams]=useState("")
+
+
+useEffect(()=>{
+    async function getallPosts(){
+        const response= await fetchAllPosts()
+        if(response){
+            setPosts(response)
+            setTags(response)
+            console.log("Response:",response)
+            
+        }else{
+            setError(response.error)
+            console.log("Error Message:",error)
+        }
     }
-    getAllPosts();
-  }, []);
+    getallPosts();
+},[])
+//Search Bar
+const postToDisplay=searchParams
+? posts.filter(p=>p.title.toLowerCase().includes(searchParams.toLowerCase())) :
+posts;
+console.log(postToDisplay)
 
-//   const displayedPosts = searchParam
-//     ? posts.filter((post) => post.title.toLowercase().includes(searchParam))
-//     : posts;
-//   console.log(
-//     displayedPosts.filter((post) =>
-//       post.title.toLowercase().includes(searchParam)
-//     )
-//   );
-//   console.log(searchParam);
-
-  return (
+return(
+    
     <>
-      <div className="homeheader">
-        <h1>Home</h1>
-      </div>
-      <div className="searchbar">
+    
+    <div className="search-bar">
         <label>
-          Search
-          <input
-            type="text"
-            placeholder="Search"
-            onChange={(e) => setSearchParam(e.target.value)}
-          />
+            Search: {' '}
+            <input type="text" placeholder="Search" onChange={(e)=>setSearchParams(e.target.value)}/>
         </label>
-      </div>
+    </div>
 
-      {/* {displayedPosts.map((posts) => (
-        <div key={posts.id} className="post">
-            <h3>{posts.title}</h3>
-            <h4>{posts.author.username}</h4>
-            <p>{posts.tags}</p>
-        </div>
-      ))} */}
+    <div className="postcontainer">
+    <h2 className="posttitle">Posts</h2>
+    {posts && postToDisplay.map((post)=>(
+            <div key={post.id} className="eachpost">
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
+            {post.tags && post.tags.map((tag, index)=>(
+                <div key={index}>
+                    <p style={{color:"#535bf2"}}>{tag.name}</p>
+                </div>
+            ))}
+
+            </div>
+    ))}
+    
+    </div>
     </>
-  );
+)
 }
