@@ -7,6 +7,7 @@ import { Login } from './components/Login'
 import Profile from './components/Profile'
 import Logout from './components/Logout'
 import NavBar from './components/NavBar'
+import Home from './components/Home'
 import { useEffect } from 'react'
 import { useState } from 'react'
 
@@ -23,10 +24,10 @@ function App() {
      
 <NavBar/>
       <Routes>
+      <Route path="/" element={<Home />} />
         <Route path="/Posts" element={<Posts />} />
         <Route path="/CreatePost" element={<CreatePostForm />} />
         <Route path="/Register" element={<SignUp />} />
-        <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/Profile" element={<Profile />}/>
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
         <Route path="/Logout" element={<Logout />}/>

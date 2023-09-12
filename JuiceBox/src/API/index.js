@@ -1,11 +1,11 @@
 export async function fetchAllPosts() {
   try {
-    const response = await fetch('http://localhost:3000/api/posts')
-    const result = await response.json()
-    console.log(result)
-    return result.posts
+    const response = await fetch('http://localhost:3000/api/posts');
+    const result = await response.json();
+    console.log("Fetched all posts", result);
+    return result;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
