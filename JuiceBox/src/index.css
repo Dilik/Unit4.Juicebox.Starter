@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #ffffff; /* White text color */
+  background-color: #d1c4e9; /* Light purple background */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,11 +16,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #4a148c; /* Dark purple link color */
+  text-decoration: none;
 }
+
 a:hover {
-  color: #535bf2;
+  color: #7b1fa2; /* Lighter purple on hover */
 }
 
 body {
@@ -35,7 +36,8 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-.banner{
+
+.banner {
   font-family: 'Amatic SC', cursive;
 }
 
@@ -50,9 +52,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -60,40 +64,41 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #213547; /* Dark text color for light mode */
+    background-color: #ffffff; /* White background for light mode */
   }
+
   a:hover {
-    color: #747bff;
+    color: #1976d2; /* Blue link color for light mode */
   }
+
   button {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Light gray button background for light mode */
   }
 }
 
-.nav-links{
+.nav-links {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 1.3em;
 }
 
-.posttitle{
+.posttitle {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-
 }
 
-.postcontainer{
+.postcontainer {
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
 
-.eachpost{
+.eachpost {
   display: flex;
-  flex-direction:column;
-  align-items:flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 20px;
 }
