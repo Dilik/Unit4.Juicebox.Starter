@@ -53,7 +53,7 @@ console.log(postToDisplay)
                   </div>
                 ))}
               <div>
-                {/* Delete Button */}
+                //{/* Delete Button */}
                 <button
                   // onClick={() => handleDelete(post.id)}
                   className="delete-button"
