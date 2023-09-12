@@ -56,24 +56,24 @@ console.log(postToDisplay)
                   </div>
                 ))}
               <div>
-                {/* Delete Button */}
+                //{/* Delete Button */}
                 <button
-                  onClick={() => handleDelete(post.id)}
-                  className="delete-button"
-                >
-                  Delete
-                </button>
-                {/* Edit Button */}
-                <button
-                  onClick={() => handleEdit(post)}
-                  className="edit-button"
-                >
-                  Edit
-                </button>
-              </div>
-            </div>
-          ))}
-      </div>
-    </>
-  );
-}
+                  //onClick={() => handleDelete(post.id)}
+                  //className="delete-button"
+                //>
+                  //Delete
+                //</button>
+                //{/* Edit Button */}
+                //<button
+                  //onClick={() => handleEdit(post)}
+                  //className="edit-button"
+                //>
+                  //Edit
+                //</button>
+              //</div>
+            //</div>
+          //))}
+      //</div>
+    //</>
+  //);
+//}
