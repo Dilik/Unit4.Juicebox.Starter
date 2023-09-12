@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
   fetchAllPosts,
-  createNewPost,
-  updateExistingPost,
-  deletePostById,
 } from '../API';
 
 export default function Home() {
@@ -58,14 +55,14 @@ console.log(postToDisplay)
               <div>
                 {/* Delete Button */}
                 <button
-                  onClick={() => handleDelete(post.id)}
+                  // onClick={() => handleDelete(post.id)}
                   className="delete-button"
                 >
                   Delete
                 </button>
                 {/* Edit Button */}
                 <button
-                  onClick={() => handleEdit(post)}
+                  // onClick={() => handleEdit(post)}
                   className="edit-button"
                 >
                   Edit
