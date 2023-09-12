@@ -23,7 +23,9 @@ export const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await registerUser(formData.username, formData.password)
+
+
+    await registerUser(formData.username, formData.password, formData.name, formData.location)
     navigate('/login')
   }
 

@@ -29,13 +29,6 @@ const tagsToDisplay=tags
 return(
     
     <>
-     <div className='navbar'>
-      <Link to={"/Profile"}>Profile</Link>
-      <Link to={"/Posts"}>Posts</Link>
-      <Link to={"/Register"}>Register</Link>
-      <Link to={"/"}>Login</Link>
-      <Link to={"/Logout"}>Logout</Link>
-      </div>
 
     <div className="postcontainer">
     <h2 className="posttitle">Posts</h2>

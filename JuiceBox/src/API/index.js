@@ -33,16 +33,16 @@ export const registerUser = async (username, password, name, location) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        user:{
+        
         username: username, 
         password: password,
         name: name,
         location: location,
-        }
+    
     })
     });
     const result = await response.json();
-    const token = result.data.token //GOTTA test
+    const token = result.token 
     localStorage.setItem("token", token);
     localStorage.setItem("username", username)
     console.log(result);
@@ -56,23 +56,26 @@ export const registerUser = async (username, password, name, location) => {
 
 export const loginUser = async (username, password) => {
   try {
+    console.log('Sending login request...');
     const response = await fetch('http://localhost:3000/api/users/login', {
-      method: "POST",
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        user: {
+        
           username: username,
-          password: password
-        }
-      })
+          password: password,
+      }),
     });
+    console.log('Response received:', response);
+
     const result = await response.json();
-    const token = result.data.token //COULD BE WRONG - gotta test
-    console.log(result);
-    return token
+    console.log('Result:', result);
+
+    const token = result.token;
+    return token;
   } catch (err) {
-    console.error(err);
+    console.error('Error:', err);
   }
-  }
+};

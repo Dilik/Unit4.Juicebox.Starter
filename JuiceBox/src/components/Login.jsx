@@ -5,8 +5,11 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 // eslint-disable-next-line react/prop-types
-export const Login = ({username, setUsername, password, setPassword, setIsLoggedIn,}) => {
+export const Login = ({ setIsLoggedIn }) => {
   const [errorMessage, setErrorMessage] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordMasked, setPasswordMasked] = useState(true)
   let navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -23,6 +26,10 @@ export const Login = ({username, setUsername, password, setPassword, setIsLogged
     }
   };
 
+  const togglePasswordMask = () => {
+    setPasswordMasked(!passwordMasked)
+  }
+
     return ( 
     
     <>
@@ -36,13 +43,19 @@ export const Login = ({username, setUsername, password, setPassword, setIsLogged
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder='Type username here..'/>
             </label>
-            <label className="loginScreen">
-                Password:
-                <input 
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder='Type password here..'/>
-            </label>
+            <label>
+          Password:
+          <input
+            type={passwordMasked ? 'password' : 'text'}
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Type password here.."
+          />
+          <button type="button" onClick={togglePasswordMask}>
+            {passwordMasked ? 'Show' : 'Hide'} Password
+          </button>
+        </label>
         <button className="loginBtn">Log in</button>
 
         <Link to={"/register"}>
